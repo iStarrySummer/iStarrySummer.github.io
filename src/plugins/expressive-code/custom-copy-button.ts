@@ -6,19 +6,58 @@ export function pluginCustomCopyButton() {
 		name: "Custom Copy Button",
 		hooks: {
 			postprocessRenderedBlock: (context) => {
-				function traverse(node: Element) {
-					if (node.type === "element" && node.tagName === "pre") {
-						processCodeBlock(node);
-						return;
-					}
-					if (node.children) {
-						for (const child of node.children) {
-							if (child.type === "element") traverse(child);
-						}
-					}
+				function hasClass(node: Element, className: string) {
+					const classes = node.properties?.className;
+					return Array.isArray(classes) && classes.includes(className);
 				}
 
-				function processCodeBlock(node: Element) {
+				function findChild(node: Element, tagName: string) {
+					return node.children.find(
+						(child): child is Element =>
+							child.type === "element" && child.tagName === tagName,
+					);
+				}
+
+				function processFrame(frame: Element) {
+					const header = findChild(frame, "figcaption");
+					const pre = findChild(frame, "pre");
+					if (!header || !pre) return;
+
+					const language = String(
+						pre.properties?.dataLanguage ??
+							pre.properties?.["data-language"] ??
+							"code",
+					);
+					const hasTitle = header.children.some(
+						(child) => child.type === "element" && hasClass(child, "title"),
+					);
+
+					const windowControls = {
+						type: "element" as const,
+						tagName: "span",
+						properties: {
+							className: ["macos-window-controls"],
+							ariaHidden: "true",
+						},
+						children: ["red", "yellow", "green"].map((color) => ({
+							type: "element" as const,
+							tagName: "span",
+							properties: {
+								className: ["macos-window-control", `is-${color}`],
+							},
+							children: [],
+						})),
+					} as Element;
+
+					const fallbackTitle = {
+						type: "element" as const,
+						tagName: "span",
+						properties: {
+							className: ["code-title-fallback"],
+						},
+						children: [{ type: "text" as const, value: language }],
+					} as Element;
+
 					const copyButton = {
 						type: "element" as const,
 						tagName: "button",
@@ -77,10 +116,19 @@ export function pluginCustomCopyButton() {
 						],
 					} as Element;
 
-					if (!node.children) {
-						node.children = [];
+					header.children.unshift(windowControls);
+					if (!hasTitle) header.children.push(fallbackTitle);
+					header.children.push(copyButton);
+				}
+
+				function traverse(node: Element) {
+					if (node.tagName === "figure" && hasClass(node, "frame")) {
+						processFrame(node);
+						return;
 					}
-					node.children.push(copyButton);
+					for (const child of node.children) {
+						if (child.type === "element") traverse(child);
+					}
 				}
 
 				traverse(context.renderData.blockAst);

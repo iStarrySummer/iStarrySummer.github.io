@@ -1,14 +1,14 @@
 ---
 title: Markdown 从入门到进阶：一篇文章掌握常用语法
 published: 2026-10-24
-description: 从标题、列表和链接开始，逐步学习表格、代码高亮、数学公式、脚注及 Fuwari 扩展语法。
-tags: [Markdown, 教程, Fuwari]
+description: 从标题、列表和链接开始，逐步学习表格、代码高亮、数学公式、脚注及博客扩展语法。
+tags: [Markdown, 教程, 博客写作]
 category: 学习笔记
 lang: zh_CN
 draft: false
 ---
 
-Markdown 是一种轻量级标记语言，它用少量易读的符号描述文章结构，再由博客系统把这些符号转换成排版完整的网页。它的价值不在于“少按几个按钮”，而在于让内容本身保持清晰：即使离开编辑器，源文件依然能够直接阅读、搜索和进行版本管理。这篇文章从最常用的写法开始，逐步介绍 Fuwari 当前支持的 Markdown 基础语法、代码展示、数学公式和扩展组件。
+Markdown 是一种轻量级标记语言，它用少量易读的符号描述文章结构，再由博客系统把这些符号转换成排版完整的网页。它的价值不在于“少按几个按钮”，而在于让内容本身保持清晰：即使离开编辑器，源文件依然能够直接阅读、搜索和进行版本管理。这篇文章从最常用的写法开始，逐步介绍本博客当前支持的 Markdown 基础语法、代码展示、数学公式和扩展组件。
 
 :::note[阅读方式]
 每一节先解释语法的用途，再展示实际渲染结果。需要查看原始写法时，可以对照紧随其后的代码块；复制示例后替换其中的文字，就能用于自己的文章。
@@ -125,10 +125,10 @@ Markdown 是一种轻量级标记语言，它用少量易读的符号描述文�
 
 ## 五、链接、自动链接与图片
 
-普通链接由方括号中的说明文字和圆括号中的地址组成，例如 [Fuwari 项目仓库](https://github.com/saicaca/fuwari)。说明文字应描述目标内容，不要只写“点击这里”，这样对搜索引擎和使用屏幕阅读器的读者都更友好。若希望直接显示完整网址，可以写成自动链接：<https://github.com/iStarrySummer>。
+普通链接由方括号中的说明文字和圆括号中的地址组成，例如 [本博客项目仓库](https://github.com/iStarrySummer/iStarrySummer.github.io)。说明文字应描述目标内容，不要只写“点击这里”，这样对搜索引擎和使用屏幕阅读器的读者都更友好。若希望直接显示完整网址，可以写成自动链接：<https://github.com/iStarrySummer>。
 
 ````markdown
-[Fuwari 项目仓库](https://github.com/saicaca/fuwari)
+[本博客项目仓库](https://github.com/iStarrySummer/iStarrySummer.github.io)
 <https://github.com/iStarrySummer>
 [跳转到本文的表格章节](#六表格让结构化信息更清楚)
 ````
@@ -246,7 +246,7 @@ $$
 
 脚注可以把补充说明移到正文末尾，避免打断主要论述。正文中写一个脚注引用[^markdown]，再在任意位置定义对应内容；渲染器会自动生成编号、跳转链接和返回正文的按钮。
 
-同一段还可以引用另一条说明[^fuwari]。脚注标识只在源文件中用于对应关系，最终编号由出现顺序决定，因此修改文章时不需要手动重排数字。
+同一段还可以引用另一条说明[^blog]。脚注标识只在源文件中用于对应关系，最终编号由出现顺序决定，因此修改文章时不需要手动重排数字。
 
 ````markdown
 Markdown 适合保存纯文本内容[^plain-text]。
@@ -255,11 +255,11 @@ Markdown 适合保存纯文本内容[^plain-text]。
 ````
 
 [^markdown]: Markdown 最初由 John Gruber 与 Aaron Swartz 共同设计，目标是让纯文本本身也保持易读。
-[^fuwari]: Fuwari 在基础 Markdown 之上配置了数学公式、Expressive Code 和提示块等能力。
+[^blog]: 本博客在基础 Markdown 之上配置了数学公式、Expressive Code 和提示块等能力。
 
-## 十、Fuwari 提示块
+## 十、博客提示块
 
-提示块也称 Admonition（告示框），它用不同的视觉样式表达补充信息、技巧或风险。Fuwari 支持 `note`、`tip`、`important`、`warning` 和 `caution` 等类型；标题可以省略，也可以写在方括号中。
+提示块也称 Admonition（告示框），它用不同的视觉样式表达补充信息、技巧或风险。当前主题支持 `note`、`tip`、`important`、`warning` 和 `caution` 等类型；标题可以省略，也可以写在方括号中。
 
 :::note
 `note` 适合补充背景和上下文，不应承载正文唯一的一份关键结论。
@@ -279,7 +279,7 @@ Markdown 适合保存纯文本内容[^plain-text]。
 :::
 ````
 
-Fuwari 也兼容 GitHub 风格的提示语法：
+当前主题也兼容 GitHub 风格的提示语法：
 
 > [!NOTE]
 > 这种写法在 GitHub README 与本文中都能得到醒目的提示效果。
@@ -291,7 +291,7 @@ Fuwari 也兼容 GitHub 风格的提示语法：
 
 ## 十一、隐藏文本、仓库卡片与 HTML
 
-剧透文本可以先隐藏答案或补充内容，读者点击后再查看。例如，这篇文章使用的博客主题是 :spoiler[Fuwari]。
+剧透文本可以先隐藏答案或补充内容，读者点击后再查看。例如，当前博客的品牌是 :spoiler[Amor.]。
 
 ````markdown
 答案是 :spoiler[Markdown]。
@@ -299,10 +299,10 @@ Fuwari 也兼容 GitHub 风格的提示语法：
 
 GitHub 仓库卡片会在页面加载时读取仓库的公开信息，适合在项目介绍中提供比普通链接更丰富的入口。
 
-::github{repo="saicaca/fuwari"}
+::github{repo="iStarrySummer/iStarrySummer.github.io"}
 
 ````markdown
-::github{repo="saicaca/fuwari"}
+::github{repo="iStarrySummer/iStarrySummer.github.io"}
 ````
 
 Markdown 允许嵌入一部分 HTML。下面使用原生的 `<details>` 和 `<summary>` 创建折叠区域；这种能力适合偶尔补充长内容，但频繁混用 HTML 会降低源文件的可读性。
@@ -351,7 +351,7 @@ Markdown 没有统一的“可见注释”语法；需要留下不会出现在�
 
 ### 今日学习记录
 
-我今天阅读了 [Fuwari 仓库](https://github.com/saicaca/fuwari)，并完成了以下练习：
+我今天阅读了 [本博客项目仓库](https://github.com/iStarrySummer/iStarrySummer.github.io)，并完成了以下练习：
 
 - [x] 理解标题层级
 - [x] 编写一个表格
@@ -372,4 +372,4 @@ console.log(`学习进度：${completed}/${total}`);
 
 ## 结语
 
-Markdown 的核心可以概括为三点：用标题建立层级，用列表、引用和表格组织信息，用链接、图片、代码与公式补充证据。Fuwari 的提示块、剧透、仓库卡片和 Expressive Code 在此基础上增强了表达能力，但它们仍然应该服务于内容，而不是取代内容。先写出清晰的纯文本结构，再逐步加入必要的扩展语法，通常就能得到一篇既容易维护、又具有良好阅读体验的文章。
+Markdown 的核心可以概括为三点：用标题建立层级，用列表、引用和表格组织信息，用链接、图片、代码与公式补充证据。本博客配置的提示块、剧透、仓库卡片和 Expressive Code 在此基础上增强了表达能力，但它们仍然应该服务于内容，而不是取代内容。先写出清晰的纯文本结构，再逐步加入必要的扩展语法，通常就能得到一篇既容易维护、又具有良好阅读体验的文章。
