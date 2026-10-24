@@ -17,7 +17,7 @@ export const siteConfig: SiteConfig = {
 	},
 	banner: {
 		enable: false,
-		src: "assets/images/demo-banner.png", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+		src: "https://zhongxia-knowledge-base-lrs.oss-cn-beijing.aliyuncs.com/img/demo-banner.jpg",
 		position: "center", // Equivalent to object-position, only supports 'top', 'center', 'bottom'. 'center' by default
 		credit: {
 			enable: false, // Display the credit text of the banner image
@@ -53,7 +53,7 @@ export const navBarConfig: NavBarConfig = {
 };
 
 export const profileConfig: ProfileConfig = {
-	avatar: "assets/images/profile-avatar.png", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+	avatar: "https://zhongxia-knowledge-base-lrs.oss-cn-beijing.aliyuncs.com/img/profile-avatar.png",
 	name: "Amor.",
 	bio: "But thy eternal summer shall not fade.",
 	links: [],

@@ -137,14 +137,14 @@ Markdown 是一种轻量级标记语言，它用少量易读的符号描述文�
 
 图片语法是在链接语法前加一个感叹号。方括号中的替代文本会在图片无法加载时显示，也会被辅助技术朗读；圆括号中写图片路径，还可以在地址后添加可选标题。
 
-![仲夏的博客头像](../../assets/images/profile-avatar.png "仲夏的博客头像")
+![仲夏的博客头像](https://zhongxia-knowledge-base-lrs.oss-cn-beijing.aliyuncs.com/img/profile-avatar.png "仲夏的博客头像")
 
 ````markdown
-![仲夏的博客头像](../../assets/images/profile-avatar.png "仲夏的博客头像")
+![仲夏的博客头像](https://zhongxia-knowledge-base-lrs.oss-cn-beijing.aliyuncs.com/img/profile-avatar.png "仲夏的博客头像")
 ````
 
 :::tip[图片路径]
-本文使用相对于文章文件的本地图片路径，构建时 Astro 会处理并优化图片。文章移动到其他目录后，相对路径也要随之调整。
+图片先通过 PicGo 上传到图床，再把生成的 HTTPS 地址写进 Markdown。发布工具会原样保留远程 URL，因此写作目录只需要保存模板和文章文件。
 :::
 
 ## 六、表格：让结构化信息更清楚
