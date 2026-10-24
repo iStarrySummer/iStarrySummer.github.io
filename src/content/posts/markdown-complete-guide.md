@@ -1,9 +1,10 @@
 ---
-title: Markdown 从入门到进阶：一篇文章掌握常用语法
+title: Markdown常用语法
 published: 2026-10-24
-description: 从标题、列表和链接开始，逐步学习表格、代码高亮、数学公式、脚注及博客扩展语法。
-tags: [Markdown, 教程, 博客写作]
-category: 学习笔记
+description: 从入门到入土
+tags:
+  - Markdown
+category: 学习
 lang: zh_CN
 draft: false
 ---
@@ -370,6 +371,3 @@ console.log(`学习进度：${completed}/${total}`);
 
 [^practice]: 最有效的练习方式，是用 Markdown 真正写完并发布一篇文章。
 
-## 结语
-
-Markdown 的核心可以概括为三点：用标题建立层级，用列表、引用和表格组织信息，用链接、图片、代码与公式补充证据。本博客配置的提示块、剧透、仓库卡片和 Expressive Code 在此基础上增强了表达能力，但它们仍然应该服务于内容，而不是取代内容。先写出清晰的纯文本结构，再逐步加入必要的扩展语法，通常就能得到一篇既容易维护、又具有良好阅读体验的文章。
