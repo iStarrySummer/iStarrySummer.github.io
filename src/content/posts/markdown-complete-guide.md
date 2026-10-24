@@ -299,10 +299,10 @@ Fuwari 也兼容 GitHub 风格的提示语法：
 
 GitHub 仓库卡片会在页面加载时读取仓库的公开信息，适合在项目介绍中提供比普通链接更丰富的入口。
 
-::github{repo="iStarrySummer/iStarrySummer.github.io"}
+::github{repo="saicaca/fuwari"}
 
 ````markdown
-::github{repo="iStarrySummer/iStarrySummer.github.io"}
+::github{repo="saicaca/fuwari"}
 ````
 
 Markdown 允许嵌入一部分 HTML。下面使用原生的 `<details>` 和 `<summary>` 创建折叠区域；这种能力适合偶尔补充长内容，但频繁混用 HTML 会降低源文件的可读性。
