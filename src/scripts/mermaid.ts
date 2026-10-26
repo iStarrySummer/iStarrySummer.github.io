@@ -6,9 +6,6 @@ let diagramId = 0;
 
 function showSvg(diagram: HTMLElement, svg: string) {
 	diagram.innerHTML = svg;
-	const renderedSvg = diagram.querySelector("svg");
-	const naturalWidth = renderedSvg?.viewBox.baseVal.width;
-	if (naturalWidth) renderedSvg.style.width = `${Math.ceil(naturalWidth)}px`;
 }
 
 async function renderMermaidBlocks() {
