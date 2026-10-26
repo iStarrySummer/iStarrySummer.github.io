@@ -98,6 +98,19 @@
         }
     }
 
+    .mermaid-diagram {
+        max-width: 100%;
+        margin: 1.5rem 0;
+        overflow-x: auto;
+
+        svg {
+            display: block;
+            margin: 0 auto;
+            max-width: none;
+            height: auto;
+        }
+    }
+
 
     ul, ol {
         li::marker {
